@@ -1,0 +1,12 @@
+<h1>Delete a Question</h1>
+<form action="/manageQuestions/deleteQuestion" method="POST">
+  <ul>
+    {{#each questions}}
+      <li>
+        <input type="radio" name="questionId" value="{{this._id}}">
+        {{this.questionText}}
+      </li>
+    {{/each}}
+  </ul>
+  <button type="submit">Delete Selected Question</button>
+</form>
