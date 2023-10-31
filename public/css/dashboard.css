@@ -1,0 +1,64 @@
+/* public/css/style.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f4f6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.wrapper {
+    display: flex;
+}
+
+.vertical-nav {
+    background-color: #3461eb; /* Blue background for the navigation bar */
+    color: #fff;
+    width: 200px;
+    padding: 20px 0;
+    position: fixed;
+    height: 100%;
+}
+
+.vertical-nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.vertical-nav ul li {
+    padding: 10px 0;
+}
+
+.vertical-nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    padding: 10px 20px;
+    transition: background-color 0.2s;
+}
+
+.vertical-nav ul li a:hover {
+    background-color: #2548c7; /* Darker blue on hover for menu items */
+}
+
+.menu-item.active a {
+    background-color: #2548c7; /* Active menu item color */
+}
+
+.content {
+    margin-left: 220px;
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    color: #333; /* Dark gray text color for the content */
+}
+
+h1 {
+    font-size: 24px;
+    color: #3461eb; /* Blue header text color */
+    margin-bottom: 20px;
+}
+
+/* Add more styles as needed */
