@@ -7,9 +7,10 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
 const manageQuestionsRoute = require("./routes/manageQuestions");
-const Admin = require("./models/admins") 
+const Admin = require("./models/admins")
 const adminRoute = require("./routes/admin")
 const dashboardRoute = require("./routes/dashboard")
+const addStationRoute = require("./routes/addStation")
 
 const app = express();
 
@@ -28,6 +29,7 @@ app.use(passport.session());
 app.use("", manageQuestionsRoute);
 app.use("", adminRoute);
 app.use("", dashboardRoute);
+app.use("", addStationRoute);
 
 
 app.set("view engine", "hbs");
