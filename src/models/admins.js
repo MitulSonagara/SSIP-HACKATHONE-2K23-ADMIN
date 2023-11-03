@@ -8,6 +8,7 @@ const adminSchema = new mongoose.Schema({
         unique: true,
     },
     password: String,
+    district: String,
     role: {
         type: String,
         default: "District Administrator",
