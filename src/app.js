@@ -11,11 +11,13 @@ const Admin = require("./models/admins")
 const adminRoute = require("./routes/admin")
 const dashboardRoute = require("./routes/dashboard")
 const addStationRoute = require("./routes/addStation")
+const path = require("path");
 
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/public", express.static("public"));
+app.use(express.static(path.join(__dirname)));
 
 app.use(session({
     secret: 'your-secdcscdsret-key', // Change this to a strong, random string
@@ -42,6 +44,14 @@ hbs.registerHelper('eq', function (v1, v2) {
 passport.use(new LocalStrategy(Admin.authenticate()));
 passport.serializeUser(Admin.serializeUser());
 passport.deserializeUser(Admin.deserializeUser());
+
+app.get("/getPDF", (req, res) => {
+    // Replace 'path-to-your-pdf.pdf' with the actual path to your PDF file.
+    const pdfFilePath = path.join("D:/SSIP-HACKATHONE-2K23-ADMIN/public/posters/ddsf_mota varachha police station.pdf");
+    
+    // Send the PDF file as a response
+    res.sendFile(pdfFilePath);
+});
 
 //DataBase Connection
 main().catch((err) => console.log(err));
