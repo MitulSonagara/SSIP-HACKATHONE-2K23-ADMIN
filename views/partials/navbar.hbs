@@ -1,20 +1,32 @@
-<nav class="vertical-nav">
-            <ul>
-                <li class="menu-item active"><a href="/dashboard">Dashboard</a></li>
+<div class="topbar-container">
+        <div class="topbar">
+            <header>Gujarat Police</header>
+            <div class="hamburger">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="sidebar">
+        <nav id="navbar">
+            <header>Gujarat Police </header>
+            <ul id="nav-item" class="sidenav">
+                <li><a href="/dashboard" class="nav-link">Dashboard</a></li>
                 {{#if (eq userRole 'State Administrator')}}
-                    <li class="menu-item"><a href="/add-new-police-station">View Feedbacks</a></li>
-                    <li class="menu-item"><a href="/add-new-police-station">Statistics</a></li>
-                    <li class="menu-item"><a href="/add-new-police-station">Manage Questions</a></li>
+                <li><a href="#What_you_should_already_know" class="nav-link">View Feedbacks</a></li>
+                <li><a href="#JavaScript_and_Java" class="nav-link">Statistics</a></li>
+                <li><a href="#Hello_world" class="nav-link">Manage Questions</a></li>
                 {{/if}}
                 {{#if (eq userRole 'District Administrator')}}
-                    <li class="menu-item"><a href="/view-feedbacks">View Feedbacks</a></li>
-                    <li class="menu-item"><a href="/add-police-inspector">Statistics</a></li>
-                    <li class="menu-item"><a href="/manage-feedback-questions">Add Police Station</a></li>
+                <li><a href="#Variables" class="nav-link">View Feedbacks</a></li>
+                <li><a href="#Declaring_variables" class="nav-link">Statistics</a></li>
+                <li><a href="#Variable_scope" class="nav-link">Add Police Station</a></li>
                 {{/if}}
                 {{#if (eq userRole 'Police Inspector')}}
-                    <li class="menu-item"><a href="/view-feedback-for-station">View Feedbacks</a></li>
-                    <li class="menu-item"><a href="/analyze-feedback">Statistics</a></li>
+                <li><a href="#Global_variables" class="nav-link">View Feedbacks</a></li>
+                <li><a href="#Constants" class="nav-link">Statistics</a></li>
                 {{/if}}
-                <li class="menu-item"><a href="/logout">Logout</a></li>
-            </ul>
+                <li><a href="#Data_types" class="nav-link">Logout</a></li>
         </nav>
+    </div>

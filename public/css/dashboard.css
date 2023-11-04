@@ -1,64 +1,167 @@
-/* public/css/style.css */
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial, sans-serif';
     background-color: #f2f4f6;
     margin: 0;
     padding: 0;
-    display: flex;
+    font-size: 1.3rem;
+    line-height: 1.5rem;
+    color: #333; /* Dark gray text color */
 }
 
-.wrapper {
-    display: flex;
+.topbar-container {
+    z-index: 1;
 }
 
-.vertical-nav {
-    background-color: #3461eb; /* Blue background for the navigation bar */
-    color: #fff;
-    width: 200px;
-    padding: 20px 0;
+.topbar {
     position: fixed;
-    height: 100%;
-}
-
-.vertical-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.vertical-nav ul li {
-    padding: 10px 0;
-}
-
-.vertical-nav ul li a {
-    text-decoration: none;
-    color: #fff;
+    width: 100%;
+    top: -3.8rem;
+    background-color: #3461eb; /* Blue background color */
+    height: 3.8rem;
     display: block;
-    padding: 10px 20px;
-    transition: background-color 0.2s;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 0.9rem;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: top 1s ease;
 }
 
-.vertical-nav ul li a:hover {
-    background-color: #2548c7; /* Darker blue on hover for menu items */
+.hamburger {
+    position: absolute;
+    top: 0.9rem;
+    right: 0.9rem;
+    cursor: pointer;
+    color: #fff; /* White color */
 }
 
-.menu-item.active a {
-    background-color: #2548c7; /* Active menu item color */
+.sidebar {
+    height: auto;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: -320px;
+    width: 300px;
+    transition: left 0.5s ease;
+    background-color: #3461eb; /* Blue background color */
+    min-width: 300px;
+    border-right: 2px solid #2548c7; /* Darker blue border */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1;
 }
 
-.content {
-    margin-left: 220px;
+nav header {
+    display: block;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 15px;
+}
+
+.sidebar #navbar .sidenav {
+    height: 90%;
+    overflow: auto;
+    padding: 0;
+    background-color: #3461eb; /* Blue background color */
+}
+
+#navbar li {
+    color: #fff; /* White color */
+    width: 100%;
+    list-style: none;
+    border-top: 2px solid #2548c7; /* Darker blue border */
+}
+
+#navbar a {
+    display: block;
+    text-decoration: none;
+    color: #fff; /* White color */
+    padding: 10px 30px;
+    cursor: pointer;
+}
+
+#navbar li:hover,
+#navbar a:hover {
+    background-color: #2548c7; /* Darker blue on hover */
+    color: #3461eb; /* Blue color */
+}
+
+#main-doc header {
+    font-size: 2rem;
+    text-align: left;
+    margin: 0;
+    color: #3461eb; /* Blue color */
+    font-weight: 900;
+}
+
+
+#main-doc {
+    width: 78%;/* Adjust the margin-left to match the sidebar width */
+    margin-right: 20px; /* Adjust the margin-left to match the sidebar width */
     margin-top: 20px;
     background-color: #fff;
+    position: absolute;
+    left: 320px;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     color: #333; /* Dark gray text color for the content */
 }
 
-h1 {
-    font-size: 24px;
-    color: #3461eb; /* Blue header text color */
-    margin-bottom: 20px;
+
+section article {
+    margin: 15px;
+    font-size: 1.2rem;
 }
 
-/* Add more styles as needed */
+section li {
+    margin: 15px 0px 0px 20px;
+}
+
+code {
+    display: block;
+    word-break: normal;
+    white-space: pre-line;
+    word-wrap: normal;
+    line-height: 2.1;
+    background-color: #2548c7; /* Darker blue background */
+    padding: 15px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 865px) {
+    .topbar {
+        top: 0;
+    }
+    .hamburger {
+        display: block;
+    }
+    .sidebar {
+        left: -320px;
+    }
+    .sidebar.visible {
+        left: 0;
+    }
+    #main-doc {
+        width: 98%;
+        margin: 10px;
+        margin-right: 20px;
+        position: absolute;
+        left: 10px;
+        top: 70px;
+    }
+}
+
+@media screen and (min-width: 866px) {
+    .topbar-container {
+        display: none;
+    }
+    .sidebar {
+        left: 0;
+    }
+}

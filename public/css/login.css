@@ -1,0 +1,74 @@
+/* Form Styles */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f2f4f6;
+}
+
+.contact-form {
+    width: 500px; /* Adjust the width as needed */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-form label {
+    width: 100%;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #fff;
+    color: #333;
+}
+
+.contact-form select {
+    width: 100%; /* Set the width of the select elements to 100% */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #fff;
+    color: #333;
+}
+
+.contact-form select::-ms-expand {
+    display: none;
+}
+
+.contact-form select option {
+    background-color: #fff;
+    color: #333;
+    font-size: 1rem;
+}
+
+.contact-form button.submit-button {
+    width: 100%; /* Make the button full width */
+    background-color: #3461eb;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.contact-form button.submit-button:hover {
+    background-color: #2548c7;
+}

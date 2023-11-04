@@ -8,7 +8,7 @@ router.get("/signup", (req, res) => {
     res.render("signup")
 })
 
-router.get('/', async (req, res) => {
+router.get('/login', async (req, res) => {
     const districts = await stations.find()
     res.render('login', { districts });
 });

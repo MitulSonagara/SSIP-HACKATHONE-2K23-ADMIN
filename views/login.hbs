@@ -1,78 +1,100 @@
-<form action="/submit" method="post">
-    <label for="username">Username:</label>
-    <input type="text" name="username" required><br>
+<!DOCTYPE html>
+<html lang="en">
 
-    <label for="password">Password:</label>
-    <input type="password" name="password" required><br>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/css/login.css">
+</head>
 
-    <label for="role">Role:</label>
-    <select name="role" id="role" onchange="toggleDistrictField()">
-        <option value="state administrator">State Administrator</option>
-        <option value="district administrator">District Administrator</option>
-        <option value="police officer">Police Officer</option>
-    </select><br>
+<body>
+    <main id="main-doc">
+        <section id="contact" class="main-section">
+            <h1>Log In</h1>
+            <form class="contact-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
 
-    <div id="districtField" style="display: none;">
-        <label for="district">Select District:</label>
-        <select name="district" id="district" onchange="populateStations()">
-            <option value="" disabled selected required>Select a district</option>'
-            {{#each districts}}
-            <option value="{{this.district}}">{{this.district}}</option>
-            {{/each}}
-        </select><br>
-    </div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
 
-    <div id="policeStationField" style="display: none;">
-        <label for="policeStation">Select Police Station:</label>
-        <select name="policeStation" id="policeStation">
-            <option value="{{this.name}}">{{this.name}}</option>
-            <!-- Police station options will be dynamically populated based on district selection -->
-        </select><br>
-    </div>
+                <label for="role">Role:</label>
+                <select name="role" id="role" onchange="toggleDistrictField()">
+                    <option value="state administrator">State Administrator</option>
+                    <option value="district administrator">District Administrator</option>
+                    <option value="police officer">Police Officer</option>
+                </select><br>
 
-    <button type="submit">Submit</button>
-</form>
+                <div id="districtField" style="display: none;">
+                    <label for="district">Select District:</label>
+                    <select name="district" id="district" onchange="populateStations()">
+                        <option value="" disabled selected required>Select a district</option>'
+                        {{#each districts}}
+                        <option value="{{this.district}}">{{this.district}}</option>
+                        {{/each}}
+                    </select><br>
+                </div>
 
-<script>
-    function toggleDistrictField() {
-        const roleSelect = document.getElementById('role');
-        const districtField = document.getElementById('districtField');
-        const policeStationField = document.getElementById('policeStationField');
+                <div id="policeStationField" style="display: none;">
+                    <label for="policeStation">Select Police Station:</label>
+                    <select name="policeStation" id="policeStation">
+                        
+                        <option value="{{this.name}}">{{this.name}}</option>
+                        <!-- Police station options will be dynamically populated based on district selection -->
+                    </select><br>
+                </div>
 
-        if (roleSelect.value === 'district administrator') {
-            districtField.style.display = 'block';
-            policeStationField.style.display = 'none';
-        } else if (roleSelect.value === 'police officer') {
-            districtField.style.display = 'block';
-            policeStationField.style.display = 'block';
-        } else {
-            districtField.style.display = 'none';
-            policeStationField.style.display = 'none';
+
+                <button type="submit" class="submit-button">Submit</button>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        function toggleDistrictField() {
+            const roleSelect = document.getElementById('role');
+            const districtField = document.getElementById('districtField');
+            const policeStationField = document.getElementById('policeStationField');
+
+            if (roleSelect.value === 'district administrator') {
+                districtField.style.display = 'block';
+                policeStationField.style.display = 'none';
+            } else if (roleSelect.value === 'police officer') {
+                districtField.style.display = 'block';
+                policeStationField.style.display = 'block';
+            } else {
+                districtField.style.display = 'none';
+                policeStationField.style.display = 'none';
+            }
         }
-    }
 
-    function populateStations() {
-        const districtSelect = document.getElementById('district');
-        const stationSelect = document.getElementById('policeStation');
-        const selectedDistrict = districtSelect.value;
-        // Clear the station dropdown
-        stationSelect.innerHTML = '<option value="" disabled selected required>Select a station</option>';
+        function populateStations() {
+            const districtSelect = document.getElementById('district');
+            const stationSelect = document.getElementById('policeStation');
+            const selectedDistrict = districtSelect.value;
+            // Clear the station dropdown
+            stationSelect.innerHTML = '<option value="" disabled selected required>Select a station</option>';
 
-        if (selectedDistrict) {
-            // Fetch the police stations for the selected district from the server
-            fetch(`/getPoliceStations/${selectedDistrict}`)
-                .then(response => response.json())
-                .then(data => {
-                    data.forEach(station => {
-                        const option = document.createElement('option');
-                        option.value = station;
-                        option.textContent = station;
-                        stationSelect.appendChild(option);
+            if (selectedDistrict) {
+                // Fetch the police stations for the selected district from the server
+                fetch(`/getPoliceStations/${selectedDistrict}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        data.forEach(station => {
+                            const option = document.createElement('option');
+                            option.value = station;
+                            option.textContent = station;
+                            stationSelect.appendChild(option);
+                        });
+                    })
+                    .catch(error => {
+                        console.error(error);
                     });
-                })
-                .catch(error => {
-                    console.error(error);
-                });
+            }
         }
-    }
-</script>
+    </script>
+    <script src="/public/js/dashboard.js"></script>
+</body>
+
+</html>

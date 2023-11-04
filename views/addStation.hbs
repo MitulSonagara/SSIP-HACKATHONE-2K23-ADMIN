@@ -1,5 +1,30 @@
-<form action="/addPoliceStation" method="POST">
-    <label for="station">Enter Station Name:</label>
-    <input type="text" id="station" name="station">
-    <button type="submit">Generate login credintials and download the qr code</button>
-</form>
+<!-- manage-questions.hbs -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Dashboard</title>
+</head>
+
+<body>
+    {{>navbar}}
+    <main id="main-doc">
+        <section id="introduction" class="main-section">
+
+
+            <form action="/addPoliceStation" method="POST" class="contact-form">
+                <label for="station">Enter Station Name:</label>
+                <input type="text" id="station" name="station">
+                <button type="submit">Generate login credintials and download the qr code</button>
+            </form>
+        </section>
+    </main>
+</body>
+
+</html>
+<script src="/public/js/dashboard.js"></script>

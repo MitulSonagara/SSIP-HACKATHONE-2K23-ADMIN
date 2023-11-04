@@ -1,33 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>{{title}}</title>
-    <link rel="stylesheet" type="text/css" href="../public/css/dashboard.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Dashboard</title>
 </head>
 
 <body>
-    <div class="wrapper">
-        {{>navbar userRole="State Administrator"}}
-        <section class="content">
-            <header>
-                <h1>Welcome to the Dashboard</h1>
-            </header>
-            <section class="dashboard-section">
-                <h2>Dashboard Section</h2>
-                <p>This is the main dashboard section of your admin site. You can customize this section with any
-                    relevant information, statistics, or widgets you want to display to the admin user.</p>
-                <p>This is the main dashboard section of your admin site. You can customize this section with any
-                    relevant information, statistics, or widgets you want to display to the admin user.</p>
-                <p>This is the main dashboard section of your admin site. You can customize this section with any
-                    relevant information, statistics, or widgets you want to display to the admin user.</p>
-                <p>This is the main dashboard section of your admin site. You can customize this section with any
-                    relevant information, statistics, or widgets you want to display to the admin user.</p>
-                <!-- Add more content here -->
-            </section>
+{{>navbar userRole="District Administrator"}}
+
+    <main id="main-doc">
+
+        <section id="introduction" class="main-section">
+            <header>Introduction</header>
+            <article>
+                <p>
+                    JavaScript is a cross-platform, object-oriented scripting language.
+                    It is a small and lightweight language. Inside a host environment
+                    (for example, a web browser), JavaScript can be connected to the
+                    objects of its environment to provide programmatic control over
+                    them.
+                </p>
+
+                <p>
+                    JavaScript contains a standard library of objects, such as Array,
+                    Date, and Math, and a core set of language elements such as
+                    operators, control structures, and statements. Core JavaScript can
+                    be extended for a variety of purposes by supplementing it with
+                    additional objects; for example:
+                </p>
+                <ul>
+                    <li>
+                        Client-side JavaScript extends the core language by supplying
+                        objects to control a browser and its Document Object Model (DOM).
+                        For example, client-side extensions allow an application to place
+                        elements on an HTML form and respond to user events such as mouse
+                        clicks, form input, and page navigation.
+                    </li>
+                    <li>
+                        Server-side JavaScript extends the core language by supplying
+                        objects relevant to running JavaScript on a server. For example,
+                        server-side extensions allow an application to communicate with a
+                        database, provide continuity of information from one invocation to
+                        another of the application, or perform file manipulations on a
+                        server.
+                    </li>
+                </ul>
+            </article>
         </section>
 
-    </div>
+    </main>
+
 </body>
 
 </html>
+<script src="/public/js/dashboard.js"></script>
