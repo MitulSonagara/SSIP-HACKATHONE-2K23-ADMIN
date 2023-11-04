@@ -73,9 +73,11 @@ router.post("/signup", async (req, res) => {
 });
 
 router.post("/login", passport.authenticate("local", {
-    successRedirect: "/dashboard",
     failureRedirect: "/login",
     failureFlash: true,
-}));
+}), (req, res) => {
+    const userRole = req.body.role
+    res.redirect(`/dashboard?userRole=${userRole}`)
+});
 
 module.exports = router;
